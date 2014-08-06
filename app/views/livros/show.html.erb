@@ -1,0 +1,37 @@
+<%- model_class = Livro -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @livro.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:edicao) %>:</strong></dt>
+  <dd><%= @livro.edicao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ano) %>:</strong></dt>
+  <dd><%= @livro.ano %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:isbn) %>:</strong></dt>
+  <dd><%= @livro.isbn %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:paginas) %>:</strong></dt>
+  <dd><%= @livro.paginas %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:autor_id) %>:</strong></dt>
+  <dd><%= @livro.autor_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:colecao_id) %>:</strong></dt>
+  <dd><%= @livro.colecao_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:editora_id) %>:</strong></dt>
+  <dd><%= @livro.editora_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:usuario_id) %>:</strong></dt>
+  <dd><%= @livro.usuario_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              livros_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_livro_path(@livro), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              livro_path(@livro),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

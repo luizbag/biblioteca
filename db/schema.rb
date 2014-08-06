@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806230929) do
+ActiveRecord::Schema.define(version: 20140806232857) do
+
+  create_table "autors", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colecaos", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "editoras", force: true do |t|
+    t.string   "nome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "livros", force: true do |t|
+    t.string   "titulo"
+    t.string   "edicao"
+    t.string   "ano"
+    t.string   "isbn"
+    t.integer  "paginas"
+    t.integer  "autor_id"
+    t.integer  "colecao_id"
+    t.integer  "editora_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "livros", ["autor_id"], name: "index_livros_on_autor_id"
+  add_index "livros", ["colecao_id"], name: "index_livros_on_colecao_id"
+  add_index "livros", ["editora_id"], name: "index_livros_on_editora_id"
+  add_index "livros", ["usuario_id"], name: "index_livros_on_usuario_id"
 
   create_table "usuarios", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :livros
+
+  resources :colecaos
+
+  resources :editoras
+
+  resources :autors
+
   get 'home/index'
 
   devise_for :usuarios
