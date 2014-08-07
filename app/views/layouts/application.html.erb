@@ -46,7 +46,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Biblioteca</a>
+          <%= link_to "Biblioteca", root_path, :class => "brand" %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Livros", livros_path  %></li>
@@ -80,7 +80,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; <%= link_to "GarageSoft", "http://garagesoft.com.br" %> 2014</p>
       </footer>
 
     </div> <!-- /container -->
