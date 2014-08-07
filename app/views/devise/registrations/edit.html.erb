@@ -1,29 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Editar <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => 'form-horizontal' }) do |f| %>
+<%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+<div class="control-group">
+  <%= f.label :email, :class => 'control-label' %>
+  <div class="controls">
+    <%= f.email_field :email, autofocus: true, :class => 'text-field' %>
+  </div>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Update" %></div>
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="control-group">
+  <%= f.label :password, "Nova senha", :class => 'control-label' %> 
+  <div class="controls">
+    <%= f.password_field :password, autocomplete: "off", :class => 'password_field' %> <i>(deixe em branco para não alterar)</i>
+  </div>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class="control-group">
+  <%= f.label :password_confirmation, "Confirmação", :class => 'control-label' %>
+  <div class="controls">
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'password_field' %>
+  </div>
+</div>
 
-<%= link_to "Back", :back %>
+<div class="control-group">
+  <%= f.label :current_password, "Senha atual", :class => 'control-label' %>
+  <div class="controls">
+    <%= f.password_field :current_password, autocomplete: "off", :class => 'password_field' %> <i>(precisamos da sua senha atual para confirmar as alterações)</i>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.submit "Editar", :class => 'btn btn-primary' %>
+</div>
+<% end %>
+
+<h3>Cancelar minha conta</h3>
+
+<p>Insatisfeito? <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Certeza?" }, method: :delete, :class => 'btn btn-danger' %></p>
+
+<%= link_to "Voltar", :back %>
