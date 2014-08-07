@@ -1,10 +1,11 @@
 class LivrosController < ApplicationController
+  before_filter :authenticate_usuario!
   before_action :set_livro, only: [:show, :edit, :update, :destroy]
 
   # GET /livros
   # GET /livros.json
   def index
-    @livros = Livro.all
+    @livros = Livro.where(usuario_id: current_usuario.id)
   end
 
   # GET /livros/1
@@ -25,7 +26,7 @@ class LivrosController < ApplicationController
   # POST /livros.json
   def create
     @livro = Livro.new(livro_params)
-
+    @livro.usuario_id = current_usuario.id
     respond_to do |format|
       if @livro.save
         format.html { redirect_to @livro, notice: 'Livro was successfully created.' }
@@ -69,6 +70,6 @@ class LivrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def livro_params
-      params.require(:livro).permit(:titulo, :edicao, :ano, :isbn, :paginas, :autor_id, :colecao_id, :editora_id)
+      params.require(:livro).permit(:titulo, :edicao, :ano, :isbn, :paginas, :autor_id, :colecao_id, :editora_id, :usuario_id)
     end
 end

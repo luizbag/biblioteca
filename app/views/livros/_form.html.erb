@@ -32,25 +32,19 @@
   <div class="control-group">
     <%= f.label :autor_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :autor_id, :class => 'text_field' %>
+      <%= f.collection_select(:autor_id, Autor.all, :id, :nome, :class => 'text_field') %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :colecao_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :colecao_id, :class => 'text_field' %>
+      <%= f.collection_select(:colecao_id, Colecao.all, :id, :nome, :class => 'text_field') %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :editora_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :editora_id, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :usuario_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :usuario_id, :class => 'text_field' %>
+      <%= f.collection_select :editora_id, Editora.all, :id, :nome, :class => 'text_field' %>
     </div>
   </div>
 
