@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140806232857) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "autors", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -45,10 +48,10 @@ ActiveRecord::Schema.define(version: 20140806232857) do
     t.datetime "updated_at"
   end
 
-  add_index "livros", ["autor_id"], name: "index_livros_on_autor_id"
-  add_index "livros", ["colecao_id"], name: "index_livros_on_colecao_id"
-  add_index "livros", ["editora_id"], name: "index_livros_on_editora_id"
-  add_index "livros", ["usuario_id"], name: "index_livros_on_usuario_id"
+  add_index "livros", ["autor_id"], name: "index_livros_on_autor_id", using: :btree
+  add_index "livros", ["colecao_id"], name: "index_livros_on_colecao_id", using: :btree
+  add_index "livros", ["editora_id"], name: "index_livros_on_editora_id", using: :btree
+  add_index "livros", ["usuario_id"], name: "index_livros_on_usuario_id", using: :btree
 
   create_table "usuarios", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140806232857) do
     t.datetime "updated_at"
   end
 
-  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
-  add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
+  add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
 end
