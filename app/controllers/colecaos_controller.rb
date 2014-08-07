@@ -1,4 +1,5 @@
 class ColecaosController < ApplicationController
+  before_filter :authenticate_usuario!, except: [:index, :show]
   before_action :set_colecao, only: [:show, :edit, :update, :destroy]
 
   # GET /colecaos

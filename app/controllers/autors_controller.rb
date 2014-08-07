@@ -1,4 +1,5 @@
 class AutorsController < ApplicationController
+  before_filter :authenticate_usuario!, except: [:index, :show]
   before_action :set_autor, only: [:show, :edit, :update, :destroy]
 
   # GET /autors

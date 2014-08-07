@@ -1,4 +1,5 @@
 class EditorasController < ApplicationController
+  before_filter :authenticate_usuario!, except: [:index, :show]
   before_action :set_editora, only: [:show, :edit, :update, :destroy]
 
   # GET /editoras
