@@ -32,19 +32,19 @@
   <div class="control-group">
     <%= f.label :autor_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:autor_id, Autor.all, :id, :nome, :class => 'text_field') %>
+      <%= f.collection_select(:autor_id, Autor.all, :id, :nome, :prompt => 'Autor', :class => 'text_field') %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :colecao_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:colecao_id, Colecao.all, :id, :nome, :class => 'text_field') %>
+      <%= f.collection_select(:colecao_id, Colecao.all, :id, :nome, :prompt => 'Coleção', :class => 'text_field') %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :editora_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :editora_id, Editora.all, :id, :nome, :class => 'text_field' %>
+      <%= f.collection_select :editora_id, Editora.all, :id, :nome, :prompt => 'Editora', :class => 'text_field' %>
     </div>
   </div>
 
