@@ -28,9 +28,9 @@
         <td><%= livro.ano %></td>
         <td><%= livro.isbn %></td>
         <td><%= livro.paginas %></td>
-        <td><%= livro.autor.nome %></td>
-        <td><%= livro.colecao.nome %></td>
-        <td><%= livro.editora.nome %></td>
+        <td><%= livro.autor.try(:nome) %></td>
+        <td><%= livro.colecao.try(:nome) %></td>
+        <td><%= livro.editora.try(:nome) %></td>
         <td><%=l livro.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -15,11 +15,11 @@
   <dt><strong><%= model_class.human_attribute_name(:paginas) %>:</strong></dt>
   <dd><%= @livro.paginas %></dd>
   <dt><strong><%= model_class.human_attribute_name(:autor_id) %>:</strong></dt>
-  <dd><%= @livro.autor.nome %></dd>
+  <dd><%= @livro.autor.try(:nome) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:colecao_id) %>:</strong></dt>
-  <dd><%= @livro.colecao.nome %></dd>
+  <dd><%= @livro.colecao.try(:nome) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:editora_id) %>:</strong></dt>
-  <dd><%= @livro.editora.nome %></dd>
+  <dd><%= @livro.editora.try(:nome) %></dd>
 </dl>
 
 <div class="form-actions">
