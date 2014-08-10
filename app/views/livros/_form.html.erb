@@ -50,6 +50,7 @@
   <div class="control-group">
     <%= f.label :image, "Imagem", :class => 'control-label' %>
     <div class="controls">
+      <%= f.hidden_field :image_cache %>
       <%= f.file_field :image %>
     </div>
   </div>

@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag @livro.image_url(:thumb).to_s %></dd>
+  <dd><%= image_tag @livro.image_url.to_s %></dd>
   <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
   <dd><%= @livro.titulo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:edicao) %>:</strong></dt>

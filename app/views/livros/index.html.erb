@@ -24,7 +24,7 @@
     <% @livros.each do |livro| %>
       <tr>
         <td><%= link_to livro.id, livro_path(livro) %></td>
-        <td><%= image_tag livro.image_url.to_s %></td>
+        <td><%= image_tag livro.image_url(:thumb).to_s %></td>
         <td><%= livro.titulo %></td>
         <td><%= livro.edicao %></td>
         <td><%= livro.ano %></td>
