@@ -47,6 +47,18 @@
       <%= f.collection_select :editora_id, Editora.all, :id, :nome, :prompt => 'Editora', :class => 'text_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :image, "Imagem", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :remote_image_url, "Link da imagem", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :remote_image_url, :class => 'text_field' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
